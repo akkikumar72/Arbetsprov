@@ -209,17 +209,21 @@ body {
   font-size: 20px;
   font-weight: 300;
 }
-
+header .logo {
+  position: relative;
+  display: block;
+  width: 134px;
+  margin: 64px auto;
+}
 #searchform {
   display: block;
   margin: 0 auto;
   text-align: center;
   width: 100%;
+  position: relative;
+  z-index: 99;
   max-width: 500px;
   transform: translateY(10%);
-}
-#searchform img {
-  margin-bottom: 3rem;
 }
 span {
   font-size: 1.25em;
@@ -250,7 +254,6 @@ span {
 }
 #search-bar:focus {
   outline: none;
-  border-radius: 5px 5px 0 0px;
 }
 #search-bar::placeholder {
   color: #fff;
@@ -264,14 +267,14 @@ span {
   font-size: 0.75em;
   transition: min-height 0.2s;
   position: absolute;
-  z-index: 5;
 }
 
 .output {
   background: #fff;
   /*border: 1px solid #767676;*/
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
 }
 
 .prediction-item {
@@ -279,6 +282,7 @@ span {
   line-height: 2;
   text-align: left;
   transition: color 0.2s, background 0.2s;
+  border-bottom-right-radius: 5px;
 }
 
 .output:hover .focus {
@@ -295,6 +299,7 @@ span {
 
 .prediction-item:hover {
   cursor: pointer;
+  overflow: hidden;
 }
 
 .prediction-item strong {
@@ -305,23 +310,37 @@ span {
 }
 
 .search-result {
-  background-color: rgba(255, 255, 255, 0.1);
-  margin-top: 3.876rem;
   color: #fff;
-  padding: 3rem 0;
+  z-index: 11;
+  margin: 0 auto;
+  margin-top: 3.876rem;
+  max-width: 1024px;
+}
+.search-result #search-list-result{
+  background-color: rgba(255, 255, 255, 0.1);
 }
 .search-result ul li {
   list-style: none;
 }
+.search-result ul li:first-of-type {
+  margin-top:20px;
+}
+.search-result ul li:last-of-type {
+  margin-bottom: 20px;
+}
 #search-list-result li {
-  padding: 0.95em 0em 1.96rem 1.95em;
+  padding: 0.75em 0em 1.96rem 1.95em;
   text-align: left;
+  width: 100%;
   font-size: 0.85rem;
+  position:relative;
+  display:inline-block;
   height: 3.374rem;
-  overflow: hidden;
-  max-width: 500px;
   line-height: 2;
-  margin: 0 auto;
+  overflow: hidden;
+  max-width: 100%;
+  line-height: 2;
+  /*margin: 0 auto;*/
 }
 #search-list-result li:hover {
   opacity: 0.8;
@@ -346,6 +365,7 @@ span {
 }
 .close-wrapper:hover a {
   visibility: visible;
+
 }
 .close-wrapper {
   padding: 1.14rem;
@@ -353,6 +373,9 @@ span {
   visibility: hidden;
   height: 54px;
   background-color: rgba(166, 33, 55, 0.6);
+}
+.close-wrapper:hover{
+  background: #790030;
 }
 p {
   margin-top: 1em;
@@ -364,15 +387,18 @@ h1 {
   font-family: "Open Sans", sans-serif;
 }
 
-@media screen and (max-width: 480px) {
-  #searchform,
-  #search-list-result li {
-    max-width: 380px;
+
+@media screen and (max-width: 720px) {
+  #searchform{
+    max-width: 90%;
+  }
+}@media screen and (max-width: 550px) {
+  #searchform{
+    max-width: 90%;
   }
 }
 @media screen and (max-width: 320px) {
-  #searchform,
-  #search-list-result li {
-    max-width: 280px;
+  #searchform{
+    max-width: 95%;
   }
 }
